@@ -47,6 +47,7 @@ export async function getChords(query) {
     const next = query?.next;
 
     const pipeline = await generateChordPipeline({ limit, search, next });
+
     const chords = JSON.parse(
       JSON.stringify(await ChordModel.aggregate(pipeline))
     );
@@ -160,6 +161,7 @@ export async function getChordBySingerId(id) {
     const res = await ChordModel.find({ singer: id })
       .populate("singer featuring", "name")
       .select("title singer featuring genre view");
+
     const chords = await JSON.parse(JSON.stringify(res));
     return chords;
   } catch (error) {

@@ -4,7 +4,7 @@ import React from "react";
 
 const DetailChordPage =async ({ params: { slug } }) => {
   const id = slug[2];
-  console.log(id);
+
 
   const chord = await getChordById(id);
 

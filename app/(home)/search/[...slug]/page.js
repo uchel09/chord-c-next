@@ -1,4 +1,4 @@
-import { getChords, getChordsCount } from "@/actions/chordAction";
+import { getAllChords, getChords, getChordsCount } from "@/actions/chordAction";
 import { getSingerNames } from "@/actions/singerAction";
 import SearchChordList from "@/components/custom/Search/ChordList";
 import SearchMenu from "@/components/custom/Search/Menu";
@@ -11,10 +11,9 @@ const SearchPage = async ({ params: { slug } }) => {
     id = decodeURI(slug[2]);
 
   const { singers } = await getSingerNames(search);
-
   let chords;
-  if (page === "all") {
-    chords = await getChords({ search });
+  if (search) {
+    chords = await getChords({ search: search });
   }
 
   return (
@@ -22,11 +21,7 @@ const SearchPage = async ({ params: { slug } }) => {
       <h2 className="font-medium text-[25px] text-[#489dff]">
         Penyanyi dan Judul untuk <span className="font-bold">({search})</span>
       </h2>
-      <SearchMenu
-        page={page}
-        search={search}
-
-      />
+      <SearchMenu page={page} search={search} />
       <SearchChordList page={page} search={search} data={chords?.data} next_cursor={chords?.next_cursor}/>
       <SearchSingerList page={page} search={search} data={singers} />
     </div>

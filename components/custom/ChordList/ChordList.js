@@ -17,6 +17,7 @@ const ChordList = ({ data, next_cursor, fetchingData }) => {
     const s = e.get("search");
     setSearch(s);
     const res = await fetchingData({ search:s });
+
     setChords([...res?.data]);
     setNext(res?.next_cursor);
   };

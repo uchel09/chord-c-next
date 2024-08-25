@@ -14,7 +14,7 @@ const SearchChordList = ({ page, search, data, next_cursor, fetchingData }) => {
     router.push(`/detail-chord/${singerName}/${title}/${id}`)
   };
 
-  if (page !== "all") return null;
+  if (page !== "judul") return null;
   return (
     <div className="w-full h-full flex flex-col overflow-y-auto gap-3 mt-5">
       {chords &&

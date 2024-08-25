@@ -13,12 +13,12 @@ const SearchMenu = ({ search, page}) => {
         Penyanyi 
       </Link>
       <Link
-        href={`/search/all/${search}`}
+        href={`/search/judul/${search}`}
         className={`px-2 rounded-t-md ${
-          page === "all" ? "bg-[#489dff] text-white" : ""
+          page === "judul" ? "bg-[#489dff] text-white" : ""
         }`}
       >
-        All 
+        Judul
       </Link>
     </div>
   );

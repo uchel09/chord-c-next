@@ -10,8 +10,6 @@ const AdminChordBase =async ({ page }) => {
   if (page !== "base") return null;
 
   const res = await getChords()
-
-
   return (
     <>
       <div className="w-[200px]">
